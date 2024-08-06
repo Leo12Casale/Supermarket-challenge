@@ -1,5 +1,4 @@
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertThrows
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -123,4 +122,13 @@ class ChallengeTests {
         assertEquals("Supermercado B (2). Total revenue: 150.0", highestRevenueSupermarket)
     }
 
+    @Test
+    fun testTrySaleWithoutStock() {
+        val exception = assertThrows(IllegalArgumentException::class.java) {
+            supermarket1.registerSale(product1.id, 10000)
+        }
+
+        // Verificar el mensaje de la excepción
+        assertEquals("Insufficient stock for product ID ${product1.id}.", exception.message)
+    }
 }
