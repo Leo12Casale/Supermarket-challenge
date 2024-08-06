@@ -120,7 +120,7 @@ class ChallengeTests {
         supermarket1.registerSale(product1.id, 10)
         supermarket2.registerSale(product1.id, 15)
         val highestRevenueSupermarket = supermarketChain.getTopSupermarket()
-        assertEquals("Supermercado B (2). Ingresos totales: 150.0", highestRevenueSupermarket)
+        assertEquals("Supermercado B (2). Total revenue: 150.0", highestRevenueSupermarket)
     }
 
 }
