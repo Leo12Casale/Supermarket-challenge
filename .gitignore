@@ -6,6 +6,8 @@ out/
 *.iws
 *.iml
 *.ipr
+*.class
+target/
 
 ### Eclipse ###
 .apt_generated
