@@ -9,27 +9,29 @@ class Supermarket(
     //List of products shared by all the supermarkets
     companion object {
         val products: MutableList<Product> = mutableListOf()
-
-        fun addProduct(product: Product) {
-            if (products.none { it.id == product.id })
-                products.add(product)
-        }
     }
 
     internal val sales: MutableMap<Product, Int> = mutableMapOf()  //Product and quantity sold
     private val revenue: MutableMap<Product, Double> = mutableMapOf()  //Product and total revenue
-    private val productsIdStock: MutableMap<Int, Int>  //Map of product ID and stock
-        get() {
-            return productsIdStock
-        }
+    private val productsIdStock: MutableMap<Product, Int> = products.associateWith { 0 }.toMutableMap()
     internal val openHours: Pair<LocalTime, LocalTime>? = null  //Opening and closing times
     internal val openDays: List<DayOfWeek>? = null  //Days when the supermarket is open
 
-    init {
-        //Initialize stock of each product with 10 units
-        products.forEach { product ->
-            if (!productsIdStock.containsKey(product.id))
-                productsIdStock[product.id] = 10
+    // Add a method to initialize stock for each product
+    fun initializeStock(quantity: Int) {
+        for (product in products) {
+            productsIdStock[product] = quantity
+        }
+    }
+
+    fun addProduct(product: Product) {
+        if (products.none { it.id == product.id })
+            products.add(product)
+    }
+
+    fun addProducts(listOfProducts: List<Product>) {
+        listOfProducts.forEach { product ->
+            products.add(product)
         }
     }
 
@@ -43,11 +45,11 @@ class Supermarket(
         //The product exists?
         val product = getProductById(productId)
         //Is there enough stock of that product in this supermarket?
-        val currentStock = productsIdStock[productId] ?: 0
+        val currentStock = productsIdStock[product] ?: 0
         if (currentStock < quantity) throw IllegalArgumentException("Insufficient stock for product ID $productId.")
 
         //Update stock, sales amount and revenue of the supermarket
-        productsIdStock[productId] = currentStock - quantity
+        productsIdStock[product] = currentStock - quantity
         sales[product] = sales.getOrDefault(product, 0) + quantity
         revenue[product] = revenue.getOrDefault(product, 0.0) + product.price * quantity
 
