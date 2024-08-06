@@ -20,7 +20,9 @@ class SupermarketChain(val supermarkets: List<Supermarket>) {
         }
 
         //Get all the products
-        val productById = supermarkets.getOrElse(0, throw RuntimeException("There is no supermarkets in the chain.")).getProducts().associateBy { it.id }
+        if(supermarkets.get(0) == null)
+            throw RuntimeException("There is no supermarkets in the chain.")
+        val productById = supermarkets.get(0).getProducts().associateBy { it.id }
 
         //Get the top 5 of sales of each product in the entire chain
         return productSales.entries
