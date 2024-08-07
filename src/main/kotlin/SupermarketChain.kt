@@ -20,7 +20,7 @@ class SupermarketChain(val supermarkets: List<Supermarket>) {
         }
 
         //Get all the products
-        if(supermarkets.get(0) == null)
+        if(supermarkets.isEmpty())
             throw RuntimeException("There is no supermarkets in the chain.")
         val productById = supermarkets.get(0).getProducts().associateBy { it.id }
 
