@@ -1,10 +1,11 @@
-# Nexup Backend Challenge
+# Backend Challenge
 
-En este repositorio, se encuentra la prueba técnica para el puesto de Backend Developer en Nexup.
+## Herramientas utilizadas
+- Maven: para gestionar dependencias del proyecto
+- Kotlin: como lenguaje de progrmación
+- JUnit5: para confección y ejecución de pruebas unitarias
 
-Este challenge está diseñado para evaluar tus habilidades de Kotlin y resolución de problemas.
-
-## Problema a resolver
+## ¿De qué se trata el challenge?
 
 Crear las clases y funciones necesarias para resolver el siguiente problema:
 - Se tiene una **cadena de supermercados**
@@ -38,41 +39,9 @@ Para cada una de las funcionalidades planteadas:
 - Manejar todos los casos de error que consideres necesarios
 - Agregar todos los tests que consideres necesarios
 
-### Objetivo opcional
-
 Se desea manejar para cada supermercado su hora de apertura y cierre, así cómo los días donde se encuentra abierto. Agregar los datos necesarios para manejar dicha información.
 
 Sobre la cadena de supermercados, agregar una funcionalidad que, dado un cierto día y horario, se pueda obtener la lista de supermercados abiertos en ese momento.
 Se espera obtener la respuesta como un _string_ con el formato `<nombre_supermercado> (<id>)`, y se concatenen con una coma.
 
 
-## Pasos a seguir:
-1. Clone este repositorio en su máquina local usando Git.
-   ```bash
-   git clone https://gitlab.com/nexup/nexup-backend-challenge.git
-   ```
-2. Crea un repositorio vacío en tu cuenta de GitHub con el mismo nombre de este.
-   ```bash
-    nexup-backend-challenge
-   ```
-3. Muevesé a la carpeta del proyecto.
-   ```bash
-   cd ./nexup-backend-challenge
-   ```
-4. Cambia la URL remota del repositorio clonado de GitHub, por la URL de tu repositorio.
-   ```bash
-   git remote set-url origin <tu-repositorio.git>
-   ```
-5. Sube el código a tu repositorio.
-
-## Recomendaciones
-- **No** hagas un _fork_ de este repositorio.
-- **No** hagas _push_ directamente a este repositorio.
-- Crea un commit por cada cambio que realices. Utiliza mensajes **claros** y **descriptivos** para documentar tu proceso.
-- No es necesario el uso de base de datos ni archivos para manejar los datos de prueba. Podes utilizar estructuras de datos en memoria.
-- Dentro del proyecto se encuentra un archivo de ejemplo para ejecución de las pruebas, modificarlo como sea necesario para adaptarlo al problema.
-  - En el archivo de pruebas se encuentra un ejemplo de datos a usar en la ejecución de los Tests
-
-## Entregables
-- Un enlace a un repositorio de GitHub con el código resolviendo el problema planteado.
-- Opcional: Un archivo README con explicaciones sobre el enfoque utilizado y cualquier otra información relevante.
